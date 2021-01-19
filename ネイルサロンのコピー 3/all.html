@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/styles/style.css" />
+    <script src="assets/scripts/scripts.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script>
+      $(function () {
+        $("#carouselInner").css(
+          "width",
+          620 * $("#carouselInner ul.column").length + "px"
+        );
+        $("#carouselInner ul.column:last").prependTo("#carouselInner");
+        $("#carouselInner").css("margin-left", "-620px");
+
+        $("#carouselPrev").click(function () {
+          $("#carouselNext,#carouselPrev").hide();
+          $("#carouselInner").animate(
+            {
+              "margin-left":
+                parseInt($("#carouselInner").css("margin-left")) + 620 + "px",
+            },
+            "slow",
+            "swing",
+            function () {
+              $("#carouselInner").css("margin-left", "-620px");
+              $("#carouselInner ul.column:last").prependTo("#carouselInner");
+              $("#carouselNext,#carouselPrev").show();
+            }
+          );
+        });
+
+        $("#carouselNext").click(function () {
+          $("#carouselNext,#carouselPrev").hide();
+          $("#carouselInner").animate(
+            {
+              "margin-left":
+                parseInt($("#carouselInner").css("margin-left")) - 620 + "px",
+            },
+            "slow",
+            "swing",
+            function () {
+              $("#carouselInner").css("margin-left", "-620px");
+              $("#carouselInner ul.column:first").appendTo("#carouselInner");
+              $("#carouselNext,#carouselPrev").show();
+            }
+          );
+        });
+
+        var timerID = setInterval(function () {
+          $("#carouselNext").click();
+        }, 1000);
+
+        $("#carouselPrev img,#carouselNext img").click(function () {
+          clearInterval(timerID);
+        });
+      });
+    </script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #carouselWrap {
+        margin: 5px auto 5px auto;
+        width: 620px;
+        height: 135px;
+        padding: 5px;
+        background: url("./images/background.gif");
+        position: relative;
+      }
+
+      #carouselPrev {
+        position: absolute;
+        top: 65px;
+        left: -8px;
+        cursor: pointer;
+      }
+      #carouselNext {
+        position: absolute;
+        top: 65px;
+        right: -8px;
+        cursor: pointer;
+      }
+      #carouse {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      #carouselInner ul.column {
+        width: 605px;
+        height: 105px;
+        padding: 15px 0 15px 15px;
+        list-style-type: none;
+        float: left;
+      }
+      #carouselInner ul.column li {
+        float: left;
+        margin-right: 10px;
+        display: inline;
+      }
+      #carouselInner ul.column li img {
+        border: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="l-general_header">
+      <ul class="c-global_navigation">
+        <li class="c-global_navigation__item">
+          <a href="home.html">ホーム</a>
+        </li>
+        <li class="c-global_navigation__item">
+          <a href="menu.html">メニュー</a>
+        </li>
+        <li class="c-global_navigation__item">
+          <a href="toiawase.html">問合せ</a>
+        </li>
+        <li class="c-global_navigation__item">
+          <a href="access.html">アクセス</a>
+        </li>
+      </ul>
+    </header>
+
+    <section class="c-basic_section_group_overview">
+      <div class="container">
+        <h3 class="c-h3_heading"><span>今週のおすすめのアクセサリー</span></h3>
+        <div id="carouselWrap">
+          <p id="carouselPrev">
+            <img src="assets/images/btn_prev.gif" alt="前へ" />
+          </p>
+          <p id="carouselNext">
+            <img src="assets/images/btn_next.gif" alt="次へ" />
+          </p>
+          <div id="carouse">
+            <div id="carouselInner">
+              <ul class="column">
+                <li>
+                  <a href="#"
+                    ><img src="assets/images/photo1_thum.jpg" alt=""
+                  /></a>
+                </li>
+                <li>
+                  <a href="#"
+                    ><img src="assets/images/photo2_thum.jpg" alt=""
+                  /></a>
+                </li>
+                <li>
+                  <a href="#"
+                    ><img src="assets/images/photo3_thum.jpg" alt=""
+                  /></a>
+                </li>
+                <li>
+                  <a href="#"
+                    ><img src="assets/images/photo4_thum.jpg" alt=""
+                  /></a>
+                </li>
+              </ul>
+              <ul class="column">
+                <li>
+                  <a href="#"
+                    ><img src="assets/images/photo5_thum.jpg" alt=""
+                  /></a>
+                </li>
+                <li>
+                  <a href="#"
+                    ><img src="assets/images/photo6_thum.jpg" alt=""
+                  /></a>
+                </li>
+                <li>
+                  <a href="#"
+                    ><img src="assets/images/photo7_thum.jpg" alt=""
+                  /></a>
+                </li>
+                <li>
+                  <a href="#"
+                    ><img src="assets/images/photo8_thum.jpg" alt=""
+                  /></a>
+                </li>
+              </ul>
+              <ul class="column">
+                <li>
+                  <a href="#"
+                    ><img src="assets/images/photo9_thum.jpg" alt=""
+                  /></a>
+                </li>
+                <li>
+                  <a href="#"
+                    ><img src="assets/images/photo10_thum.jpg" alt=""
+                  /></a>
+                </li>
+                <li>
+                  <a href="#"
+                    ><img src="assets/images/photo11_thum.jpg" alt=""
+                  /></a>
+                </li>
+                <li>
+                  <a href="#"
+                    ><img src="assets/images/photo12_thum.jpg" alt=""
+                  /></a>
+                </li>
+              </ul>
+              <ul class="column">
+                <li>
+                  <a href="#"
+                    ><img src="assets/images/photo13_thum.jpg" alt=""
+                  /></a>
+                </li>
+                <li>
+                  <a href="#"
+                    ><img src="assets/images/photo14_thum.jpg" alt=""
+                  /></a>
+                </li>
+                <li>
+                  <a href="#"
+                    ><img src="assets/images/photo15_thum.jpg" alt=""
+                  /></a>
+                </li>
+                <li>
+                  <a href="#"
+                    ><img src="assets/images/photo16_thum.jpg" alt=""
+                  /></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="container">
+          <h1 class="c-h1_heading">
+            <span>今週のおすすめのアクセサリー</span>
+          </h1>
+          <article class="c-menu_article">
+            <img class="" src="assets/images/neil1.jpg" alt="" />
+            <div class="c-entry_information">
+              <div class="c-entry_information">
+                <h2 class="c-entry_information__category">
+                  <em>レジンアート</em>
+                </h2>
+              </div>
+              <p class="c-entry_article__title">コラムタイトル</p>
+              <div class="c-Purchase_buttun">
+                <form action="stripe-php/charge.php" method="POST">
+                  <input type="hidden" name="productId" value="iuu" />
+                  <script
+                    src="https://checkout.stripe.com/checkout.js"
+                    class="stripe-button"
+                    data-key="pk_test_51I1tqeB4nv4v9x6AI8CUakGQThks5rCtiLS1GDIMiq77c3lA89S51bPyx7FTOcMqUIWrxi3F8nb1CLKIXyAwjbcN00bGEyQCsG"
+                    data-amount="0"
+                    data-name="支払先の名前"
+                    data-description="購入内容の詳細"
+                    data-image="アイコン（ダイアログに表示）"
+                    data-locale="auto"
+                    data-currency="jpy"
+                  ></script>
+                </form>
+              </div>
+            </div>
+          </article>
+
+          <article class="c-menu_article">
+            <img class="" src="assets/images/neil2.jpg" alt="" />
+            <div class="c-entry_information">
+              <div class="c-entry_information">
+                <h2 class="c-entry_information__category">
+                  <em>レジンアート</em>
+                </h2>
+              </div>
+              <p class="c-entry_article__title">コラムタイトル</p>
+              <div class="c-Purchase_buttun">
+                <form action="stripe-php/charge.php" method="POST">
+                  <input type="hidden" name="productId" value="iuu" />
+                  <script
+                    src="https://checkout.stripe.com/checkout.js"
+                    class="stripe-button"
+                    data-key="pk_test_51I1tqeB4nv4v9x6AI8CUakGQThks5rCtiLS1GDIMiq77c3lA89S51bPyx7FTOcMqUIWrxi3F8nb1CLKIXyAwjbcN00bGEyQCsG"
+                    data-amount="0"
+                    data-name="支払先の名前"
+                    data-description="購入内容の詳細"
+                    data-image="アイコン（ダイアログに表示）"
+                    data-locale="auto"
+                    data-currency="jpy"
+                  ></script>
+                </form>
+              </div>
+            </div>
+          </article>
+
+          <article class="c-menu_article">
+            <img class="" src="assets/images/neil3.jpg" alt="" />
+            <div class="c-entry_information">
+              <div class="c-entry_information">
+                <h2 class="c-entry_information__category">
+                  <em>レジンアート</em>
+                </h2>
+              </div>
+              <p class="c-entry_article__title">コラムタイトル</p>
+              <div class="c-Purchase_buttun">
+                <form action="stripe-php/charge.php" method="POST">
+                  <input type="hidden" name="productId" value="iuu" />
+                  <script
+                    src="https://checkout.stripe.com/checkout.js"
+                    class="stripe-button"
+                    data-key="pk_test_51I1tqeB4nv4v9x6AI8CUakGQThks5rCtiLS1GDIMiq77c3lA89S51bPyx7FTOcMqUIWrxi3F8nb1CLKIXyAwjbcN00bGEyQCsG"
+                    data-amount="0"
+                    data-name="支払先の名前"
+                    data-description="購入内容の詳細"
+                    data-image="アイコン（ダイアログに表示）"
+                    data-locale="auto"
+                    data-currency="jpy"
+                  ></script>
+                </form>
+              </div>
+            </div>
+          </article>
+
+          <article class="c-menu_article">
+            <img class="" src="assets/images/neil4.jpg" alt="" />
+            <div class="c-entry_information">
+              <div class="c-entry_information">
+                <h2 class="c-entry_information__category">
+                  <em>レジンアート</em>
+                </h2>
+              </div>
+              <p class="c-entry_article__title">コラムタイトル</p>
+              <div class="c-Purchase_buttun">
+                <form action="stripe-php/charge.php" method="POST">
+                  <input type="hidden" name="productId" value="iuu" />
+                  <script
+                    src="https://checkout.stripe.com/checkout.js"
+                    class="stripe-button"
+                    data-key="pk_test_51I1tqeB4nv4v9x6AI8CUakGQThks5rCtiLS1GDIMiq77c3lA89S51bPyx7FTOcMqUIWrxi3F8nb1CLKIXyAwjbcN00bGEyQCsG"
+                    data-amount="0"
+                    data-name="支払先の名前"
+                    data-description="購入内容の詳細"
+                    data-image="アイコン（ダイアログに表示）"
+                    data-locale="auto"
+                    data-currency="jpy"
+                  ></script>
+                </form>
+              </div>
+            </div>
+          </article>
+
+          <article class="c-menu_article">
+            <img class="" src="assets/images/neil5.jpg" alt="" />
+            <div class="c-entry_information">
+              <div class="c-entry_information">
+                <h2 class="c-entry_information__category">
+                  <em>レジンアート</em>
+                </h2>
+              </div>
+              <p class="c-entry_article__title">コラムタイトル</p>
+              <div class="c-Purchase_buttun">
+                <form action="stripe-php/charge.php" method="POST">
+                  <input type="hidden" name="productId" value="iuu" />
+                  <script
+                    src="https://checkout.stripe.com/checkout.js"
+                    class="stripe-button"
+                    data-key="pk_test_51I1tqeB4nv4v9x6AI8CUakGQThks5rCtiLS1GDIMiq77c3lA89S51bPyx7FTOcMqUIWrxi3F8nb1CLKIXyAwjbcN00bGEyQCsG"
+                    data-amount="0"
+                    data-name="支払先の名前"
+                    data-description="購入内容の詳細"
+                    data-image="アイコン（ダイアログに表示）"
+                    data-locale="auto"
+                    data-currency="jpy"
+                  ></script>
+                </form>
+              </div>
+            </div>
+          </article>
+
+          <article class="c-menu_article">
+            <img class="" src="assets/images/neil6.jpg" alt="" />
+            <div class="c-entry_information">
+              <h2 class="c-entry_information__category">
+                <em>レジンアート</em>
+              </h2>
+            </div>
+            <p class="c-entry_article__title">コラムタイトル</p>
+            <div class="c-Purchase_buttun">
+              <form action="stripe-php/charge.php" method="POST">
+                <input type="hidden" name="productId" value="iuu" />
+                <script
+                  src="https://checkout.stripe.com/checkout.js"
+                  class="stripe-button"
+                  data-key="pk_test_51I1tqeB4nv4v9x6AI8CUakGQThks5rCtiLS1GDIMiq77c3lA89S51bPyx7FTOcMqUIWrxi3F8nb1CLKIXyAwjbcN00bGEyQCsG"
+                  data-amount="0"
+                  data-name="支払先の名前"
+                  data-description="購入内容の詳細"
+                  data-image="アイコン（ダイアログに表示）"
+                  data-locale="auto"
+                  data-currency="jpy"
+                ></script>
+              </form>
+            </div>
+          </article>
+
+          <article class="c-menu_article">
+            <img class="" src="assets/images/neil7.jpg" alt="" />
+            <div class="c-entry_information">
+              <h2 class="c-entry_information__category">
+                <em>レジンアート</em>
+              </h2>
+            </div>
+            <p class="c-entry_article__title">コラムタイトル</p>
+            <div class="c-Purchase_buttun">
+              <form action="stripe-php/charge.php" method="POST">
+                <input type="hidden" name="productId" value="iuu" />
+                <script
+                  src="https://checkout.stripe.com/checkout.js"
+                  class="stripe-button"
+                  data-key="pk_test_51I1tqeB4nv4v9x6AI8CUakGQThks5rCtiLS1GDIMiq77c3lA89S51bPyx7FTOcMqUIWrxi3F8nb1CLKIXyAwjbcN00bGEyQCsG"
+                  data-amount="0"
+                  data-name="支払先の名前"
+                  data-description="購入内容の詳細"
+                  data-image="アイコン（ダイアログに表示）"
+                  data-locale="auto"
+                  data-currency="jpy"
+                ></script>
+              </form>
+            </div>
+          </article>
+
+          <article class="c-menu_article">
+            <img class="" src="assets/images/neil8.jpg" alt="" />
+            <div class="c-entry_information">
+              <div class="c-entry_information">
+                <h2 class="c-entry_information__category">
+                  <em>レジンアート</em>
+                </h2>
+              </div>
+              <p class="c-entry_article__title">コラムタイトル</p>
+              <div class="c-Purchase_buttun">
+                <form action="stripe-php/charge.php" method="POST">
+                  <input type="hidden" name="productId" value="iuu" />
+                  <script
+                    src="https://checkout.stripe.com/checkout.js"
+                    class="stripe-button"
+                    data-key="pk_test_51I1tqeB4nv4v9x6AI8CUakGQThks5rCtiLS1GDIMiq77c3lA89S51bPyx7FTOcMqUIWrxi3F8nb1CLKIXyAwjbcN00bGEyQCsG"
+                    data-amount="0"
+                    data-name="支払先の名前"
+                    data-description="購入内容の詳細"
+                    data-image="アイコン（ダイアログに表示）"
+                    data-locale="auto"
+                    data-currency="jpy"
+                  ></script>
+                </form>
+              </div>
+            </div>
+          </article>
+
+          <article class="c-menu_article">
+            <img class="" src="assets/images/neil9.jpg" alt="" />
+            <div class="c-entry_information">
+              <div class="c-entry_information">
+                <h2 class="c-entry_information__category">
+                  <em>レジンアート</em>
+                </h2>
+              </div>
+              <p class="c-entry_article__title">コラムタイトル</p>
+              <div class="c-Purchase_buttun">
+                <form action="stripe-php/charge.php" method="POST">
+                  <input type="hidden" name="productId" value="iuu" />
+                  <script
+                    src="https://checkout.stripe.com/checkout.js"
+                    class="stripe-button"
+                    data-key="pk_test_51I1tqeB4nv4v9x6AI8CUakGQThks5rCtiLS1GDIMiq77c3lA89S51bPyx7FTOcMqUIWrxi3F8nb1CLKIXyAwjbcN00bGEyQCsG"
+                    data-amount="0"
+                    data-name="支払先の名前"
+                    data-description="購入内容の詳細"
+                    data-image="アイコン（ダイアログに表示）"
+                    data-locale="auto"
+                    data-currency="jpy"
+                  ></script>
+                </form>
+              </div>
+            </div>
+          </article>
+
+          <article class="c-menu_article">
+            <img class="" src="assets/images/neil10.jpg" alt="" />
+            <div class="c-entry_information">
+              <div class="c-entry_information">
+                <h2 class="c-entry_information__category">
+                  <em>レジンアート</em>
+                </h2>
+              </div>
+              <p class="c-entry_article__title">コラムタイトル</p>
+              <div class="c-Purchase_buttun">
+                <form action="stripe-php/charge.php" method="POST">
+                  <input type="hidden" name="productId" value="iuu" />
+                  <script
+                    src="https://checkout.stripe.com/checkout.js"
+                    class="stripe-button"
+                    data-key="pk_test_51I1tqeB4nv4v9x6AI8CUakGQThks5rCtiLS1GDIMiq77c3lA89S51bPyx7FTOcMqUIWrxi3F8nb1CLKIXyAwjbcN00bGEyQCsG"
+                    data-amount="0"
+                    data-name="支払先の名前"
+                    data-description="購入内容の詳細"
+                    data-image="アイコン（ダイアログに表示）"
+                    data-locale="auto"
+                    data-currency="jpy"
+                  ></script>
+                </form>
+              </div>
+            </div>
+          </article>
+
+          <article class="c-menu_article">
+            <img class="" src="assets/images/neil11.jpg" alt="" />
+            <div class="c-entry_information">
+              <h2 class="c-entry_information__category">
+                <em>レジンアート</em>
+              </h2>
+            </div>
+            <p class="c-entry_article__title">コラムタイトル</p>
+            <div class="c-Purchase_buttun">
+              <form action="stripe-php/charge.php" method="POST">
+                <input type="hidden" name="productId" value="iuu" />
+                <script
+                  src="https://checkout.stripe.com/checkout.js"
+                  class="stripe-button"
+                  data-key="pk_test_51I1tqeB4nv4v9x6AI8CUakGQThks5rCtiLS1GDIMiq77c3lA89S51bPyx7FTOcMqUIWrxi3F8nb1CLKIXyAwjbcN00bGEyQCsG"
+                  data-amount="0"
+                  data-name="支払先の名前"
+                  data-description="購入内容の詳細"
+                  data-image="アイコン（ダイアログに表示）"
+                  data-locale="auto"
+                  data-currency="jpy"
+                ></script>
+              </form>
+            </div>
+          </article>
+
+          <article class="c-menu_article">
+            <img class="" src="assets/images/neil12.jpg" alt="" />
+            <div class="c-entry_information">
+              <div class="c-entry_information">
+                <h2 class="c-entry_information__category">
+                  <em>レジンアート</em>
+                </h2>
+              </div>
+              <p class="c-entry_article__title">コラムタイトル</p>
+              <div class="c-Purchase_buttun">
+                <form action="stripe-php/charge.php" method="POST">
+                  <input type="hidden" name="productId" value="iuu" />
+                  <script
+                    src="https://checkout.stripe.com/checkout.js"
+                    class="stripe-button"
+                    data-key="pk_test_51I1tqeB4nv4v9x6AI8CUakGQThks5rCtiLS1GDIMiq77c3lA89S51bPyx7FTOcMqUIWrxi3F8nb1CLKIXyAwjbcN00bGEyQCsG"
+                    data-amount="0"
+                    data-name="支払先の名前"
+                    data-description="購入内容の詳細"
+                    data-image="アイコン（ダイアログに表示）"
+                    data-locale="auto"
+                    data-currency="jpy"
+                  ></script>
+                </form>
+              </div>
+            </div>
+          </article>
+
+          <article class="c-menu_article">
+            <img class="" src="assets/images/neil13.jpg" alt="" />
+            <div class="c-entry_information">
+              <div class="c-entry_information">
+                <h2 class="c-entry_information__category">
+                  <em>レジンアート</em>
+                </h2>
+              </div>
+              <p class="c-entry_article__title">コラムタイトル</p>
+              <div class="c-Purchase_buttun">
+                <form action="stripe-php/charge.php" method="POST">
+                  <input type="hidden" name="productId" value="iuu" />
+                  <script
+                    src="https://checkout.stripe.com/checkout.js"
+                    class="stripe-button"
+                    data-key="pk_test_51I1tqeB4nv4v9x6AI8CUakGQThks5rCtiLS1GDIMiq77c3lA89S51bPyx7FTOcMqUIWrxi3F8nb1CLKIXyAwjbcN00bGEyQCsG"
+                    data-amount="0"
+                    data-name="支払先の名前"
+                    data-description="購入内容の詳細"
+                    data-image="アイコン（ダイアログに表示）"
+                    data-locale="auto"
+                    data-currency="jpy"
+                  ></script>
+                </form>
+              </div>
+            </div>
+          </article>
+
+          <article class="c-menu_article">
+            <img class="" src="assets/images/neil14.jpg" alt="" />
+            <div class="c-entry_information">
+              <div class="c-entry_information">
+                <h2 class="c-entry_information__category">
+                  <em>レジンアート</em>
+                </h2>
+              </div>
+              <p class="c-entry_article__title">コラムタイトル</p>
+              <div class="c-Purchase_buttun">
+                <form action="stripe-php/charge.php" method="POST">
+                  <input type="hidden" name="productId" value="iuu" />
+                  <script
+                    src="https://checkout.stripe.com/checkout.js"
+                    class="stripe-button"
+                    data-key="pk_test_51I1tqeB4nv4v9x6AI8CUakGQThks5rCtiLS1GDIMiq77c3lA89S51bPyx7FTOcMqUIWrxi3F8nb1CLKIXyAwjbcN00bGEyQCsG"
+                    data-amount="0"
+                    data-name="支払先の名前"
+                    data-description="購入内容の詳細"
+                    data-image="アイコン（ダイアログに表示）"
+                    data-locale="auto"
+                    data-currency="jpy"
+                  ></script>
+                </form>
+              </div>
+            </div>
+          </article>
+
+          <article class="c-menu_article">
+            <img class="" src="assets/images/neil15.jpg" alt="" />
+            <div class="c-entry_information">
+              <div class="c-entry_information">
+                <h2 class="c-entry_information__category">
+                  <em>レジンアート</em>
+                </h2>
+              </div>
+              <p class="c-entry_article__title">コラムタイトル</p>
+              <div class="c-Purchase_buttun">
+                <form action="stripe-php/charge.php" method="POST">
+                  <input type="hidden" name="productId" value="iuu" />
+                  <script
+                    src="https://checkout.stripe.com/checkout.js"
+                    class="stripe-button"
+                    data-key="pk_test_51I1tqeB4nv4v9x6AI8CUakGQThks5rCtiLS1GDIMiq77c3lA89S51bPyx7FTOcMqUIWrxi3F8nb1CLKIXyAwjbcN00bGEyQCsG"
+                    data-amount="0"
+                    data-name="支払先の名前"
+                    data-description="購入内容の詳細"
+                    data-image="アイコン（ダイアログに表示）"
+                    data-locale="auto"
+                    data-currency="jpy"
+                  ></script>
+                </form>
+              </div>
+            </div>
+          </article>
+
+          <article class="c-menu_article">
+            <img class="" src="assets/images/neil16.jpg" alt="" />
+            <div class="c-entry_information">
+              <div class="c-entry_information">
+                <h2 class="c-entry_information__category">
+                  <em>レジンアート</em>
+                </h2>
+              </div>
+              <p class="c-entry_article__title">コラムタイトル</p>
+              <div class="c-Purchase_buttun">
+                <form action="stripe-php/charge.php" method="POST">
+                  <input type="hidden" name="productId" value="iuu" />
+                  <script
+                    src="https://checkout.stripe.com/checkout.js"
+                    class="stripe-button"
+                    data-key="pk_test_51I1tqeB4nv4v9x6AI8CUakGQThks5rCtiLS1GDIMiq77c3lA89S51bPyx7FTOcMqUIWrxi3F8nb1CLKIXyAwjbcN00bGEyQCsG"
+                    data-amount="0"
+                    data-name="支払先の名前"
+                    data-description="購入内容の詳細"
+                    data-image="アイコン（ダイアログに表示）"
+                    data-locale="auto"
+                    data-currency="jpy"
+                  ></script>
+                </form>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="c-basic_section_Introduction">
+      <div class="container">
+        <h1 class="h1-heading_resin"><span>レジンとは？？</span></h1>
+        <p class="c-basic_resin_introduction">
+          透明感のある艶やかな質感が特徴のレジン
+          そもそも『resin(レジン)』とは、英語で『樹脂』を意味しています
+          樹脂とは、字の通り『樹木から分泌される粘液、それが固まったもの』を指し、
+          広い意味では漆や琥珀、ゴムなども樹脂に含まれます。
+          ハンドメイドや工作の用語として使われる樹脂は、上記に加えて
+          「何らかの刺激を与えると硬化する透明の素材」という特徴を持っています。
+          ハンドメイド好きの方にはなじみのある言葉だと思いますが、
+          「エポキシレジン」「UVレジン」の2種類があることはご存知でしょうか？
+        </p>
+      </div>
+
+      <div class="container">
+        <h1 class="h1-heading_resin"><span>エポキシレジンとは？</span></h1>
+        <p class="c-basic_resin_introduction">
+          主剤と硬化剤、2つの液を混ぜて化学反応で固まる樹脂です。
+          硬化に1日～2日ほどかかります。
+          温度が高い環境下だと硬化が早く、温度が低いと硬化が遅くなります。
+          こちらは2つの液を混ぜて固まるので2液性レジン液と言われています。
+          2液性レジン＝エポキシ樹脂ではなく、ウレタン樹脂などいろいろあります。
+          配合比はメーカーのエポキシ樹脂（エポキシレジン）によって違います。
+        </p>
+      </div>
+
+      <div class="container">
+        <h1 class="h1-heading_resin"><span>UVレジンとは？</span></h1>
+        <p class="c-basic_resin_introduction">
+          UVレジンは紫外線硬化樹脂と言われるように紫外線（UVライト）で固まる樹脂のことです。
+          紫外線をあてると約5分ほどで固まります。
+          紫外線をあてる代表的な方法は太陽光、もしくはUVライトがあります。
+          一つの液だけを使うので、一液性レジン液です。
+          一液性レジン液＝UVレジンではなく、一液性エポキシ樹脂などもあります。
+        </p>
+      </div>
+    </section>
+
+    <section class="c-youtube_resin_make">
+      <div class="container">
+        <h1 class="h1-heading_resin"><span>説明動画</span></h1>
+        <p>
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/GOjwGQyCLqA"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </p>
+      </div>
+    </section>
+
+    <section class="c-basic_section_group">
+      <div class="container">
+        <div class="c-basic_section_group_map">
+          <div class="animationTarget">
+            <h1 class="c-h1_heading"><span>アクセス</span></h1>
+            <div class="c-basic_section_group_googlemap">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6591.65134029448!2d136.6166714937255!3d34.87983373672165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x600389c5beb1baa7%3A0xb28a02cd86267f5b!2z44CSNTEzLTAwNDYg5LiJ6YeN55yM6Yi06bm_5biC5Y2X5aCA5rGf77yR5LiB55uu77yR77yQ!5e0!3m2!1sja!2sjp!4v1606631818200!5m2!1sja!2sjp"
+                width="600"
+                height="450"
+                frameborder="0"
+                style="border: 0"
+                allowfullscreen=""
+                aria-hidden="false"
+                tabindex="0"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="c-basic_section_group_address">
+        <div class="container">
+          <div class="animationTarget">
+            <p class="c-basic_section_group_address_namber">513-0046</p>
+            <p class="c-basic_section_ group_address_access_name">
+              三重県鈴鹿市南堀江1-10-13
+            </p>
+            <p class="c-basic_section_group_address_car_stand">
+              駐車場　8台(オグラ建設敷地内)
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <h2 class="h2_footer">RE:NAIL</h2>
+      </div>
+    </footer>
+  </body>
+</html>
